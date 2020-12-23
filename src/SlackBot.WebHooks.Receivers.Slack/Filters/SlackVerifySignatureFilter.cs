@@ -54,6 +54,14 @@ namespace SlackBot.WebHooks.Receivers.Slack.Filters
                     return;
                 }
 
+                string requestTimestamp = base.GetRequestHeader(request, SlackConstants.TimestampHeaderName, out errorResult);
+                if (errorResult != null)
+                {
+                    context.Result = errorResult;
+
+                    return;
+                }
+
                 byte[] expectedHash = base.FromHex(signatureValue, SlackConstants.SignatureHeaderName);
                 if (expectedHash == null)
                 {
@@ -71,7 +79,8 @@ namespace SlackBot.WebHooks.Receivers.Slack.Filters
                 }
 
                 byte[] secret = Encoding.UTF8.GetBytes(secretKey);
-                byte[] actualHash = await base.ComputeRequestBodySha256HashAsync(request, secret);
+                byte[] prefix = Encoding.UTF8.GetBytes($"{SlackConstants.SignatureHeaderKey}:{requestTimestamp}:");
+                byte[] actualHash = await base.ComputeRequestBodySha256HashAsync(request, secret, prefix);
                 if (!SecretEqual(expectedHash, actualHash))
                 {
                     context.Result = base.CreateBadSignatureResult(SlackConstants.SignatureHeaderName);

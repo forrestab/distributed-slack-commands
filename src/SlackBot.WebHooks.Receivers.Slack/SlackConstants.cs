@@ -10,6 +10,8 @@ namespace SlackBot.WebHooks.Receivers.Slack
 
         public static string SignatureHeaderKey => "v0";
 
-        public static int SecretKeyMinLength => 16;
+        public static int SecretKeyMinLength => 32;
+
+        public static string TimestampHeaderName => "X-Slack-Request-Timestamp";
     }
 }
