@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  slackbot.webhooks:
+    image: ${DOCKER_REGISTRY-}slackbotwebhooks
+    container_name: sb-webhooks
+    build:
+      context: .
+      dockerfile: SlackBot.WebHooks/Dockerfile
+    networks:
+      - slackbot
+
+  ngrok:
+    image: wernight/ngrok
+    container_name: sb-ngrok
+    ports:
+      - 4041:4040
+    environment:
+      - NGROK_PORT=sb-webhooks:80
+    networks:
+      - slackbot
+
+networks:
+  slackbot:
+    driver: bridge
