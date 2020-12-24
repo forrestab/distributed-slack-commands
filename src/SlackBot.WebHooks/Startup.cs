@@ -22,6 +22,7 @@ namespace SlackBot.WebHooks
 
             services
                 .AddControllers()
+                .AddNewtonsoftJson()
                 .AddSlackWebHooks();
         }
 
