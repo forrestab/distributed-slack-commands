@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
+using SlackBot.WebHooks.Receivers.Slack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SlackBot.WebHooks.Controllers
+namespace SlackBot.WebHooks.Features
 {
     [ApiController]
-    public class SlackController : Controller
-    {
-        
-    }
+    public partial class SlackController : Controller
+    { }
 }
