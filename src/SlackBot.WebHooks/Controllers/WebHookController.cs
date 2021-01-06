@@ -20,6 +20,7 @@ namespace SlackBot.WebHooks.Controllers
             @event switch
             {
                 SlackEvents.URL_VERIFICATION => typeof(SlackBot.WebHooks.Events.UrlVerificationEvent.Command),
+                SlackEvents.APP_RATE_LIMITED => typeof(SlackBot.WebHooks.Events.AppRateLimitedEvent.Request),
                 _ => throw new InvalidOperationException($"Unknown event: '{@event}'")
             };
     }
