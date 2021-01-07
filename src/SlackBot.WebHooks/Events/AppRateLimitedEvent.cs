@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using SlackBot.WebHooks.Events.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,15 +9,10 @@ namespace SlackBot.WebHooks.Events
 {
     public class AppRateLimitedEvent
     {
-        public class Request : IRequest
+        public class Request : Event, IRequest
         {
-            [JsonProperty("api_app_id")]
-            public string ApiAppId { get; set; }
             [JsonProperty("minute_rate_limited")]
             public long MinuteRateLimited { get; set; }
-            [JsonProperty("team_id")]
-            public string TeamId { get; set; }
-            public string Token { get; set; }
         }
 
         public class Handler : IRequestHandler<Request>
