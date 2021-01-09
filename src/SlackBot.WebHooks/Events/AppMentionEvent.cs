@@ -1,7 +1,7 @@
+using CommandLine;
 using MediatR;
+using SlackBot.WebHooks.Commands;
 using SlackBot.WebHooks.Events.Common;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +19,8 @@ namespace SlackBot.WebHooks.Events
         {
             public async Task<Unit> Handle(EventCallback<Command> request, CancellationToken cancellationToken)
             {
+                var result = Parser.Default.ParseArguments<GetWeatherCommand>(request.Event.Text.Split(" ").Skip(1));
+
                 return Unit.Value;
             }
         }
