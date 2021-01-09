@@ -1,7 +1,6 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using SlackBot.WebHooks.Events.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,7 +8,7 @@ namespace SlackBot.WebHooks.Events
 {
     public class AppRateLimitedEvent
     {
-        public class Request : Event, IRequest
+        public class Request : IRequest
         {
             [JsonProperty("minute_rate_limited")]
             public long MinuteRateLimited { get; set; }
@@ -26,13 +25,7 @@ namespace SlackBot.WebHooks.Events
 
             public Task<Unit> Handle(Request request, CancellationToken cancellationToken)
             {
-                this.logger.LogDebug(
-                    "AppRateLimited request: {ApiAppId}, {MinuteRateLimited}, {TeamId}, {Token}",
-                    request.ApiAppId,
-                    request.MinuteRateLimited,
-                    request.TeamId,
-                    request.Token
-                );
+                this.logger.LogDebug("AppRateLimited request: {MinuteRateLimited}", request.MinuteRateLimited);
 
                 return Task.FromResult(Unit.Value);
             }

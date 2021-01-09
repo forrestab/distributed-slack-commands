@@ -13,7 +13,7 @@ namespace SlackBot.WebHooks.Controllers
         { }
 
         [SlackWebHook]
-        public async Task<IActionResult> OnSlackEvent(string @event, JRaw data) =>
-            await base.SendAsync(@event, data.ToString());
+        public async Task<IActionResult> OnSlackEvent(string @event, JToken data) =>
+            await base.SendAsync(@event, data);
     }
 }
