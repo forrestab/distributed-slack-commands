@@ -20,7 +20,7 @@ namespace SlackBot.WebHooks.Controllers
         private Type GetEventType(string @event, JToken request) =>
             @event switch
             {
-                SlackEvents.URL_VERIFICATION => typeof(Events.UrlVerificationEvent.Command),
+                SlackEvents.URL_VERIFICATION => typeof(Events.UrlVerificationEvent.Request),
                 SlackEvents.APP_RATE_LIMITED => typeof(Events.AppRateLimitedEvent.Request),
                 SlackEvents.EVENT_CALLBACK => this.GetEventSubtype(request.SelectToken("$.event.type").Value<string>()),
                 _ => throw new InvalidOperationException($"Unknown event: '{@event}'")

@@ -7,7 +7,7 @@ namespace SlackBot.WebHooks.Events
 {
     public class UrlVerificationEvent
     {
-        public class Command : IRequest<Result>
+        public class Request : IRequest<Result>
         {
             public string Challenge { get; set; }
             public string Token { get; set; }
@@ -18,7 +18,7 @@ namespace SlackBot.WebHooks.Events
             public string Challenge { get; set; }
         }
 
-        public class Handler : IRequestHandler<Command, Result>
+        public class Handler : IRequestHandler<Request, Result>
         {
             private readonly ILogger<Handler> logger;
 
@@ -27,7 +27,7 @@ namespace SlackBot.WebHooks.Events
                 this.logger = logger;
             }
 
-            public async Task<Result> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Result> Handle(Request request, CancellationToken cancellationToken)
             {
                 this.logger.LogDebug("UrlVerification request: {Token}, {Challenge}", request.Token, request.Challenge);
 
