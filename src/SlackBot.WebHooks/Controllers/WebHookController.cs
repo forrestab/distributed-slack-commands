@@ -29,7 +29,7 @@ namespace SlackBot.WebHooks.Controllers
         private Type GetEventSubtype(string subtype) =>
             subtype switch
             {
-                "app_mention" => typeof(Events.Common.EventCallback<Events.AppMentionEvent.Command>),
+                SlackEvents.APP_MENTION => typeof(Events.Common.EventCallback<Events.AppMentionEvent.Command>),
                 _ => throw new InvalidOperationException($"Unknown subtype event: '{subtype}'")
             };
     }

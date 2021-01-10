@@ -11,5 +11,6 @@ namespace SlackBot.WebHooks.Receivers.Slack
         public const string URL_VERIFICATION = "url_verification";
         public const string APP_RATE_LIMITED = "app_rate_limited";
         public const string EVENT_CALLBACK = "event_callback";
+        public const string APP_MENTION = "app_mention";
     }
 }
