@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SlackBot.WebHooks.Infrastructure.NServiceBus;
 using SlackBot.WebHooks.Receivers.Slack.Extensions;
 
 namespace SlackBot.WebHooks
@@ -26,7 +27,8 @@ namespace SlackBot.WebHooks
                 .AddSlackWebHooks();
 
             services
-                .AddMediatR(typeof(Startup));
+                .AddMediatR(typeof(Startup))
+                .AddNServiceBus(this.Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

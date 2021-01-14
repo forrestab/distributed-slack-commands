@@ -14,9 +14,19 @@ services:
     image: wernight/ngrok
     container_name: sb-ngrok
     ports:
-      - 4041:4040
+      - 7001:4040
     environment:
       - NGROK_PORT=sb-webhooks:80
+    networks:
+      - slackbot
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: sb-rabbitmq
+    hostname: rabbit
+    ports:
+      - 7002:5672
+      - 7003:15672
     networks:
       - slackbot
 
