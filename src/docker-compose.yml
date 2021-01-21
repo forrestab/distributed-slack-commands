@@ -10,6 +10,15 @@ services:
     networks:
       - slackbot
 
+  slackbot.getweather:
+    image: ${DOCKER_REGISTRY-}slackbotgetweather
+    container_name: sb-getweather
+    build:
+      context: .
+      dockerfile: SlackBot.Services.GetWeather/Dockerfile
+    networks:
+      - slackbot
+
   ngrok:
     image: wernight/ngrok
     container_name: sb-ngrok

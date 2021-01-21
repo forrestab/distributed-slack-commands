@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SlackBot.Services.GetWeather": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
