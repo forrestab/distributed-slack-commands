@@ -14,6 +14,8 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackBot.Services.GetWeather", "SlackBot.Services.GetWeather\SlackBot.Services.GetWeather.csproj", "{21FC9C70-4423-4222-94B9-E98BAC524514}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackBot.Common", "SlackBot.Common\SlackBot.Common.csproj", "{761BC7A1-A4F2-4342-A3E5-0E39093080A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{21FC9C70-4423-4222-94B9-E98BAC524514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21FC9C70-4423-4222-94B9-E98BAC524514}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21FC9C70-4423-4222-94B9-E98BAC524514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761BC7A1-A4F2-4342-A3E5-0E39093080A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761BC7A1-A4F2-4342-A3E5-0E39093080A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761BC7A1-A4F2-4342-A3E5-0E39093080A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761BC7A1-A4F2-4342-A3E5-0E39093080A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

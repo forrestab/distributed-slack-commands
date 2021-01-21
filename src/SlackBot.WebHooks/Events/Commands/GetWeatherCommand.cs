@@ -21,7 +21,11 @@ namespace SlackBot.WebHooks.Events.Commands
             this.Handler = CommandHandler.Create<GetWeatherOptions>(HandleCommand);
         }
 
-        private async Task HandleCommand(GetWeatherOptions options) => await this.endpoint.Publish(options);
+        private async Task HandleCommand(GetWeatherOptions options) =>
+            await this.endpoint.Publish(new SlackBot.Common.Commands.GetWeatherCommand()
+            {
+                Zip = options.Zip
+            });
     }
 
     public class GetWeatherOptions : IEvent

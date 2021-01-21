@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SlackBot.Common\SlackBot.Common.csproj" />
     <ProjectReference Include="..\SlackBot.WebHooks.Receivers.Slack\SlackBot.WebHooks.Receivers.Slack.csproj" />
   </ItemGroup>
 

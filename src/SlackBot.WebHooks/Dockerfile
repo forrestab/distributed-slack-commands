@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["SlackBot.WebHooks/SlackBot.WebHooks.csproj", "SlackBot.WebHooks/"]
 COPY ["SlackBot.WebHooks.Receivers.Slack/SlackBot.WebHooks.Receivers.Slack.csproj", "SlackBot.WebHooks.Receivers.Slack/"]
+COPY ["SlackBot.Common/SlackBot.Common.csproj", "SlackBot.Common/"]
 RUN dotnet restore "SlackBot.WebHooks/SlackBot.WebHooks.csproj"
 COPY . .
 WORKDIR "/src/SlackBot.WebHooks"

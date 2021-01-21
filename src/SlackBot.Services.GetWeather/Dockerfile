@@ -6,6 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["SlackBot.Services.GetWeather/SlackBot.Services.GetWeather.csproj", "SlackBot.Services.GetWeather/"]
+COPY ["SlackBot.Common/SlackBot.Common.csproj", "SlackBot.Common/"]
 RUN dotnet restore "SlackBot.Services.GetWeather/SlackBot.Services.GetWeather.csproj"
 COPY . .
 WORKDIR "/src/SlackBot.Services.GetWeather"
